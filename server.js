@@ -3,7 +3,7 @@ const app = express();
 const path = require("path");
 const PORT = process.env.PORT || 3500;
 
-app.use("/", express.static(path.join(__dirname, "/public")));
+app.use("/", express.static(path.join(__dirname, "public")));
 app.use("/", require("./routes/root"));
 
 app.use("*", (req, res) => {
@@ -16,4 +16,5 @@ app.use("*", (req, res) => {
     res.type("txt").send("404 not found");
   }
 });
+
 app.listen(PORT, () => console.log(`server started on ${PORT}`));
